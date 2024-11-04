@@ -1,0 +1,24 @@
+<mat-card>
+  <mat-card-title>Project Details</mat-card-title>
+  <mat-card-content>
+    <mat-list>
+      @for (task of tasks; track $index) {
+      <mat-list-item>
+        <mat-icon mat-list-icon>{{
+          task.completed ? "check_circle" : "pending"
+        }}</mat-icon>
+        <h4 mat-line>{{ task.name }}</h4>
+        <p mat-line>{{ task.description }}</p>
+        <button mat-icon-button (click)="editTask(task.id)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" (click)="deleteTask(task.id)">
+          <mat-icon>delete</mat-icon>
+        </button> </mat-list-item
+      >}
+    </mat-list>
+    <button mat-raised-button color="primary" (click)="addTask()">
+      Add Task
+    </button>
+  </mat-card-content>
+</mat-card>
